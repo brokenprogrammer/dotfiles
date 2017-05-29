@@ -30,6 +30,9 @@ filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
 
+" Removing toolbars
+:set guioptions-=T  "remove toolbar
+
 
 " General Settings
 syntax on
