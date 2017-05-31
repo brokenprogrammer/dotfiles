@@ -44,6 +44,7 @@ set autoread		" auto read when file is changed from outside
 filetype on           " Enable filetype detection
 filetype indent on    " Enable filetype-specific indenting
 filetype plugin on    " Enable filetype-specific plugins
+set number						" Enable line numbers
 
 if has("gui_running")	" GUI color and font settings
   set guifont=Osaka-Mono:h20
