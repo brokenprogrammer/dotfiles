@@ -1,0 +1,18 @@
+{
+    // Controls the font size in pixels.
+    "editor.fontSize": 13,
+
+    // Controls the font family.
+    "editor.fontFamily": "Consolas, 'Courier New', monospace",
+
+    // Color theme.
+    "workbench.colorTheme": "Abyss",
+
+    "d.workspacedPath": "C:\\Users\\Oskar\\.vscode\\extensions\\webfreak.code-d-0.16.2\\bin\\workspace-d.exe",
+    "d.dubPath": "C:\\Users\\Oskar\\.vscode\\extensions\\webfreak.code-d-0.16.1\\bin\\dub.exe",
+    "d.dfmtPath": "C:\\Users\\Oskar\\.vscode\\extensions\\webfreak.code-d-0.16.1\\bin\\dfmt\\bin\\dfmt.exe",
+    "d.dcdClientPath": "C:\\Users\\Oskar\\.vscode\\extensions\\webfreak.code-d-0.16.1\\bin\\DCD\\bin\\dcd-client.exe",
+    "d.dcdServerPath": "C:\\Users\\Oskar\\.vscode\\extensions\\webfreak.code-d-0.16.1\\bin\\DCD\\bin\\dcd-server.exe",
+    "d.dscannerPath": "C:\\Users\\Oskar\\.vscode\\extensions\\webfreak.code-d-0.16.1\\bin\\Dscanner\\dscanner.exe",
+    "git.confirmSync": false
+}
