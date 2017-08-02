@@ -1,4 +1,16 @@
 {
+    // Saves files automatically.
+    "files.autoSave": "afterdelay",
+
+    // Editor tab size.
+    "editor.tabSize": 4,
+
+    // Automatically insert spaces.
+    "editor.insertSpaces": true,
+
+    // Render the whitespaces.
+    "editor.renderWhitespace": "all",
+
     // Controls the font size in pixels.
     "editor.fontSize": 13,
 
