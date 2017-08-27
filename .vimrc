@@ -15,9 +15,6 @@ Plugin 'VundleVim/Vundle.vim'
 " A useful file system explorer by Martin Grenfell
 Plugin 'scrooloose/nerdtree'
 
-" UltiSnips is the ultimate solution for snippets in Vim.
-Plugin 'SirVer/ultisnips'
-
 " Snippets are separated from the engine.
 Plugin 'honza/vim-snippets'
 
@@ -47,7 +44,7 @@ filetype plugin on    " Enable filetype-specific plugins
 set number						" Enable line numbers
 
 if has("gui_running")	" GUI color and font settings
-  set guifont=Osaka-Mono:h20
+  set guifont=Courier_New:h10:cANSI:qDRAFT
   set background=dark 
   set t_Co=256          " 256 color mode
   set cursorline        " highlight current line
