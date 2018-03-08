@@ -21,8 +21,14 @@ Plugin 'SirVer/ultisnips'
 " Snippets are separated from the engine.
 Plugin 'honza/vim-snippets'
 
+" Syntax highlighting plugin for Vim." 
+Plugin 'scrooloose/syntastic'
+
 " Dutyl operates various Dlang tools to help you program D in Vim.
 Plugin 'idanarye/vim-dutyl'
+
+" Official F# plugin that provides features to enhance F# experience in Vim."
+Plugin 'fsharp/vim-fsharp'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -30,9 +36,11 @@ filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
 
+" Executes the pathogen infect."
+execute pathogen#infect()
+
 " Removing toolbars
 :set guioptions-=T  "remove toolbar
-
 
 " General Settings
 syntax on
@@ -98,3 +106,18 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 " Open NERDTree automatically when vim starts up on opening a directory
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0]
+
+" Syntastic plugin settings"
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+" Fsharp plugin settings"
+let g:fsharp_interactive_bin = 'C:\Program Files (x86)\Microsoft SDKs\F#\4.1\Framework\v4.0\'
+let g:fsharp_fsi_show_auto_open = 1
+
