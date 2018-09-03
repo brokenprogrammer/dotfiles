@@ -9,7 +9,8 @@
 (defvar my-packages '(clojure-mode
 		      fsharp-mode
 		      haskell-mode
-		      cider))
+		      cider
+		      rainbow-delimiters))
 
 ; Install missing packages
 (dolist (p my-packages)
@@ -24,6 +25,12 @@
 ; Turn off annoying toolbars
 (scroll-bar-mode -1)
 (tool-bar-mode 0)
+
+; Turn of bell on windows
+(setq visible-bell 1)
+
+; Always show line numbers
+(global-linum-mode 1)
 
 ; TODO: Detect operating system.
 ; TODO: Add compilation shortcut command or something
@@ -41,6 +48,9 @@
 	 ("\\.fs"   . fsharp-mode)
 	 ("\\.fsx"  . fsharp-mode)
        ) auto-mode-alist))
+
+; File mode hooks
+(add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
 
 ; Keybindings
 (define-key global-map [C-right] 'forward-word)
@@ -84,4 +94,12 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(rainbow-delimiters-depth-1-face ((t (:foreground "dark orange"))))
+ '(rainbow-delimiters-depth-2-face ((t (:foreground "deep pink"))))
+ '(rainbow-delimiters-depth-3-face ((t (:foreground "chartreuse"))))
+ '(rainbow-delimiters-depth-4-face ((t (:foreground "deep sky blue"))))
+ '(rainbow-delimiters-depth-5-face ((t (:foreground "yellow"))))
+ '(rainbow-delimiters-depth-6-face ((t (:foreground "orchid"))))
+ '(rainbow-delimiters-depth-7-face ((t (:foreground "spring green"))))
+ '(rainbow-delimiters-depth-8-face ((t (:foreground "sienna1"))))
  )
