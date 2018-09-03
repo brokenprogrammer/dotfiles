@@ -1,14 +1,20 @@
 ; Initialize MELPA
 (require 'package)
-(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
+(add-to-list 'package-archives
+	     '("melpa" . "http://melpa.milkbox.net/packages/"))
 (unless package-archive-contents (package-refresh-contents))
 (package-initialize)
 
-; Install Fsharp-mode
-(unless (package-installed-p 'fsharp-mode)
-  (package-install 'fsharp-mode))
-(require 'fsharp-mode)
+; List of my installed packages
+(defvar my-packages '(clojure-mode
+		      fsharp-mode
+		      haskell-mode
+		      cider))
 
+; Install missing packages
+(dolist (p my-packages)
+  (unless (package-installed-p p)
+    (package-install p)))
 
 ; Prevent emacs from losing undo informatio
 ; By setting a high limit for undo buffers.
@@ -18,7 +24,6 @@
 ; Turn off annoying toolbars
 (scroll-bar-mode -1)
 (tool-bar-mode 0)
-()
 
 ; TODO: Detect operating system.
 ; TODO: Add compilation shortcut command or something
@@ -31,6 +36,8 @@
        '(("\\.cpp$" . c++-mode)
 	 ("\\.h$"   . c++-mode)
 	 ("\\.c$"   . c++-mode)
+	 ("\\.clj$" . clojure-mode)
+	 ("\\.hs$"  . haskell-mode)
 	 ("\\.fs"   . fsharp-mode)
 	 ("\\.fsx"  . fsharp-mode)
        ) auto-mode-alist))
