@@ -34,8 +34,6 @@
 
 ; TODO: Detect operating system.
 ; TODO: Add compilation shortcut command or something
-; TODO: Add folder structure plugin.
-; TODO: Add c++ formatting..
 
 ; Set file extensions and their modes
 (setq auto-mode-alist
@@ -51,6 +49,10 @@
 
 ; File mode hooks
 (add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
+
+; Newline indents, semi-colon doesn't
+(define-key c++-mode-map "\C-m" 'newline-and-indent)
+(setq c-hanging-semi&comma-criteria '((lambda () 'stop)))
 
 ; Keybindings
 (define-key global-map [C-right] 'forward-word)
