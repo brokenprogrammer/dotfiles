@@ -66,7 +66,7 @@
 (global-unset-key [mouse-2])
 
 ; Bright-red TODOs
- (setq fixme-modes '(c++-mode c-mode emacs-lisp-mode))
+ (setq fixme-modes '(c++-mode c-mode emacs-lisp-mode csharp-mode))
  (make-face 'font-lock-fixme-face)
  (make-face 'font-lock-study-face)
  (make-face 'font-lock-important-face)
@@ -220,10 +220,10 @@
    )
 
   (cond ((file-exists-p buffer-file-name) t)
-        ((string-match "[.]hin" buffer-file-name) (casey-source-format))
-        ((string-match "[.]cin" buffer-file-name) (casey-source-format))
-        ((string-match "[.]h" buffer-file-name) (casey-header-format))
-        ((string-match "[.]cpp" buffer-file-name) (casey-source-format)))
+        ((string-match "[.]hin" buffer-file-name) (oskar-source-format))
+        ((string-match "[.]cin" buffer-file-name) (oskar-source-format))
+        ((string-match "[.]h" buffer-file-name) (oskar-header-format))
+        ((string-match "[.]cpp" buffer-file-name) (oskar-source-format)))
 
   (defun oskar-find-corresponding-file ()
     "Find the file that corresponds to this one."
@@ -276,8 +276,8 @@
   (define-key c++-mode-map "\ez" 'kill-region)
 
   ; devenv.com error parsing
-  (add-to-list 'compilation-error-regexp-alist 'casey-devenv)
-  (add-to-list 'compilation-error-regexp-alist-alist '(casey-devenv
+  (add-to-list 'compilation-error-regexp-alist 'oskar-devenv)
+  (add-to-list 'compilation-error-regexp-alist-alist '(oskar-devenv
    "*\\([0-9]+>\\)?\\(\\(?:[a-zA-Z]:\\)?[^:(\t\n]+\\)(\\([0-9]+\\)) : \\(?:see declaration\\|\\(?:warnin\\(g\\)\\|[a-z ]+\\) C[0-9]+:\\)"
    2 3 nil (4)))
 
@@ -418,7 +418,7 @@
 (define-key global-map "\el" 'oskar-replace-in-region)
 
 (define-key global-map "\eo" 'query-replace)
-(define-key global-map "\eO" 'casey-replace-string)
+(define-key global-map "\eO" 'oskar-replace-string)
 
 ; \377 is alt-backspace
 (define-key global-map "\377" 'backward-kill-word)
@@ -442,7 +442,7 @@
 (defun find-project-directory-recursive ()
   "Recursively search for a makefile."
   (interactive)
-  (if (file-exists-p casey-makescript) t
+  (if (file-exists-p oskar-makescript) t
       (cd "../")
       (find-project-directory-recursive)))
 
@@ -471,7 +471,7 @@
 (defun make-without-asking ()
   "Make the current build."
   (interactive)
-  (if (find-project-directory) (compile casey-makescript))
+  (if (find-project-directory) (compile oskar-makescript))
   (other-window 1))
 (define-key global-map "\em" 'make-without-asking)
 
