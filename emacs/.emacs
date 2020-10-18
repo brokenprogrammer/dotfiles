@@ -36,10 +36,13 @@
 
 ; Load required libraries
 (load-library "view")
-(autoload 'csharp-mode "csharp-mode" "Major mode for editing C# code." t)
 (require 'cc-mode)
 (require 'ido)
 (require 'compile)
+
+(load "~/csharp-mode.el")
+(require 'csharp-mode)
+
 (ido-mode t)
 
 ; Setup my find-files
