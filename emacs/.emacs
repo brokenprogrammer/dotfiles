@@ -69,7 +69,7 @@
 (global-unset-key [mouse-2])
 
 ; Bright-red TODOs
- (setq fixme-modes '(c++-mode c-mode emacs-lisp-mode csharp-mode))
+ (setq fixme-modes '(c++-mode c-mode emacs-lisp-mode csharp-mode python-mode js-mode))
  (make-face 'font-lock-fixme-face)
  (make-face 'font-lock-study-face)
  (make-face 'font-lock-important-face)
@@ -106,6 +106,10 @@
          ("\\.m$" . objc-mode)
          ("\\.mm$" . objc-mode)
 	 ("\\.cs$" . csharp-mode)
+	 ("\\.py$" . python-mode)
+	 ("\\.js$" . js-mode)
+	 ("\\.ts$" . js-mode)
+	 ("\\.tsx$" . js-mode)
        ) auto-mode-alist))
 
 ; C++ indentation style
