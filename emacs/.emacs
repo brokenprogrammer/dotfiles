@@ -110,6 +110,7 @@
 	 ("\\.js$" . js-mode)
 	 ("\\.ts$" . js-mode)
 	 ("\\.tsx$" . js-mode)
+	 ("\\.dart$" . js-mode)
        ) auto-mode-alist))
 
 ; C++ indentation style
@@ -201,7 +202,7 @@
      (insert "   $Date: $\n")
      (insert "   $Revision: $\n")
      (insert "   $Creator: Oskar Mendel $\n")
-     (insert "   $Notice: (C) Copyright 2020 by Nullsson, Inc. All Rights Reserved. $\n")
+     (insert "   $Notice: (C) Copyright 2021 by Nullsson, Inc. All Rights Reserved. $\n")
      (insert "   ======================================================================== */\n")
      (insert "\n")
      (insert "#define ")
@@ -222,7 +223,7 @@
      (insert "   $Date: $\n")
      (insert "   $Revision: $\n")
      (insert "   $Creator: Oskar Mendel $\n")
-     (insert "   $Notice: (C) Copyright 2020 by Nullsson, Inc. All Rights Reserved. $\n")
+     (insert "   $Notice: (C) Copyright 2021 by Nullsson, Inc. All Rights Reserved. $\n")
      (insert "   ======================================================================== */\n")
    )
 
