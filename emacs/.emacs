@@ -340,24 +340,10 @@
 (define-key global-map "\ew" 'other-window)
 
 ; Navigation
-(defun previous-blank-line ()
-  "Moves to the previous line containing nothing but whitespace."
-  (interactive)
-  (search-backward-regexp "^[ \t]*\n")
-)
-
-(defun next-blank-line ()
-  "Moves to the next line containing nothing but whitespace."
-  (interactive)
-  (forward-line)
-  (search-forward-regexp "^[ \t]*\n")
-  (forward-line -1)
-)
-
 (define-key global-map [C-right] 'forward-word)
 (define-key global-map [C-left] 'backward-word)
-(define-key global-map [C-up] 'previous-blank-line)
-(define-key global-map [C-down] 'next-blank-line)
+(define-key global-map [C-up] 'backward-paragraph)
+(define-key global-map [C-down] 'forward-paragraph)
 (define-key global-map [home] 'beginning-of-line)
 (define-key global-map [end] 'end-of-line)
 (define-key global-map [pgup] 'forward-page)
@@ -385,8 +371,8 @@
 (define-key global-map "\eq" 'append-as-kill)
 (define-key global-map "\ea" 'yank)
 (define-key global-map "\ez" 'kill-region)
-(define-key global-map [M-up] 'previous-blank-line)
-(define-key global-map [M-down] 'next-blank-line)
+(define-key global-map [M-up] 'backward-paragraph)
+(define-key global-map [M-down] 'forward-paragraph)
 (define-key global-map [M-right] 'forward-word)
 (define-key global-map [M-left] 'backward-word)
 
@@ -530,10 +516,7 @@
 (define-key global-map [C-tab] 'indent-region)
 (define-key global-map "	" 'indent-region)
 
-;(defun oskar-never-split-a-window
-;    "Never, ever split a window."
-;    nil)
-;(setq split-window-preferred-function 'oskar-never-split-a-window)
+(setq split-window-preferred-function 'casey-never-split-a-window)
 
 (add-to-list 'default-frame-alist '(font . "Liberation Mono-11.5"))
 (set-face-attribute 'default t :font "Liberation Mono-11.5")
