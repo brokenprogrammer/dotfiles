@@ -40,6 +40,7 @@
 (require 'ido)
 (require 'compile)
 
+(load "~/csharp-compilation.el")
 (load "~/csharp-mode.el")
 (require 'csharp-mode)
 
