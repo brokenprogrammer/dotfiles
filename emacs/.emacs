@@ -40,15 +40,32 @@
 (require 'ido)
 (require 'compile)
 
+(load "~/projectile.el")
 (load "~/csharp-compilation.el")
 (load "~/csharp-mode.el")
 (require 'csharp-mode)
 
 (ido-mode t)
 
+; Setup projectile paths to work at home & work pc
+(setq oskar-work-pc (not (file-directory-p "~/../../Documents/Work/")))
+(if oskar-work-pc
+    (setq oskar-projectile-paths '("~/../../Documents/Github/" "~/../../Documents/Work/"))
+  (setq oskar-projectile-paths '("~/../../Documents/Github/")))
+  
+; Setup projectile mode
+(projectile-mode +1)
+(setq projectile-project-search-path 'oskar-projectile-paths)
+(setq projectile-sort-order 'access-time)
+(setq projectile-completion-system 'ido)
+
+
 ; Setup my find-files
-(define-key global-map "\ef" 'find-file)
-(define-key global-map "\eF" 'find-file-other-window)
+(define-key global-map "\ef" 'projectile-find-file)
+(define-key global-map "\eF" 'projectile-find-file-other-window)
+(define-key global-map "\C-o" 'find-file) ; CTRL + O (Generic open file command)
+(define-key global-map "\C-O" 'projectile-find-dir) ; CTRL + SHIFT + O (Open project)
+
 
 (global-set-key (read-kbd-macro "\eb")  'ido-switch-buffer)
 (global-set-key (read-kbd-macro "\eB")  'ido-switch-buffer-other-window)
