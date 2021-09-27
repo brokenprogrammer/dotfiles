@@ -55,7 +55,7 @@
   
 ; Setup projectile mode
 (projectile-mode +1)
-(setq projectile-project-search-path 'oskar-projectile-paths)
+(setq projectile-project-search-path oskar-projectile-paths)
 (setq projectile-sort-order 'access-time)
 (setq projectile-completion-system 'ido)
 
