@@ -58,13 +58,14 @@
 (setq projectile-project-search-path oskar-projectile-paths)
 (setq projectile-sort-order 'access-time)
 (setq projectile-completion-system 'ido)
+(setq projectile-indexing-method 'alien)
 
 
 ; Setup my find-files
 (define-key global-map "\ef" 'projectile-find-file)
 (define-key global-map "\eF" 'projectile-find-file-other-window)
 (define-key global-map "\C-o" 'find-file) ; CTRL + O (Generic open file command)
-(define-key global-map "\C-O" 'projectile-find-dir) ; CTRL + SHIFT + O (Open project)
+(define-key global-map "\C-O" 'projectile-switch-project) ; CTRL + SHIFT + O (Open project)
 
 
 (global-set-key (read-kbd-macro "\eb")  'ido-switch-buffer)
