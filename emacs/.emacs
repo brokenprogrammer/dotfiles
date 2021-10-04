@@ -53,7 +53,7 @@
 (setq projectile-sort-order 'access-time)
 (setq projectile-completion-system 'ido)
 (setq projectile-indexing-method 'alien)
-
+(setq projectile-mode-line-function '(lambda () (format " Project[%s]" (projectile-project-name))))
 
 ; Setup my find-files
 (define-key global-map "\ef" 'projectile-find-file)
