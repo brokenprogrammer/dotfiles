@@ -581,8 +581,8 @@
 ; Do not allow to untoggle this.
 ;(global-set-key (kbd "C-c v") 'mmv-toggle-mark-visibility)
 
-(add-to-list 'default-frame-alist '(font . "Liberation Mono-11.5"))
-(set-face-attribute 'default t :font "Liberation Mono-11.5")
+(add-to-list 'default-frame-alist '(font . "Liberation Mono-10"))
+(set-face-attribute 'default t :font "Liberation Mono-10")
 (set-face-attribute 'font-lock-builtin-face nil :foreground "#DAB98F")
 (set-face-attribute 'font-lock-comment-face nil :foreground "gray50")
 (set-face-attribute 'font-lock-constant-face nil :foreground "olive drab")
