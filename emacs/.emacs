@@ -18,11 +18,10 @@
 (scroll-bar-mode -1)
 (tool-bar-mode 0)
 (setq enable-local-variables nil)
-(setq oskar-font "outline-DejaVu Sans Mono")
+(setq oskar-font "Liberation Mono-10")
 
 (when oskar-win32 
   (setq oskar-makescript "build.bat")
-  (setq oskar-font "outline-Liberation Mono")
 )
 
 ; TODO(Oskar): When oskar-aquamacs
@@ -581,8 +580,8 @@
 ; Do not allow to untoggle this.
 ;(global-set-key (kbd "C-c v") 'mmv-toggle-mark-visibility)
 
-(add-to-list 'default-frame-alist '(font . "Liberation Mono-10"))
-(set-face-attribute 'default t :font "Liberation Mono-10")
+(add-to-list 'default-frame-alist `(font . ,oskar-font))
+(set-face-attribute 'default t :font oskar-font)
 (set-face-attribute 'font-lock-builtin-face nil :foreground "#DAB98F")
 (set-face-attribute 'font-lock-comment-face nil :foreground "gray50")
 (set-face-attribute 'font-lock-constant-face nil :foreground "olive drab")
