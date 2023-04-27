@@ -4,6 +4,8 @@
 ;; Comment/uncomment this line to enable MELPA Stable if desired.  See `package-archive-priorities`
 ;; and `package-pinned-packages`. Most users will not need or want to do this.
 ;;(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
+
+; Initialize packages
 (package-initialize)
 
 ; Enable line hightlighting 
@@ -20,6 +22,7 @@
 (tool-bar-mode 0)
 
 ; Set font
+(add-to-list 'default-frame-alist `(font . ,"Liberation Mono-10"))
 (set-face-attribute 'default t :font "Liberation Mono-10")
 
 ; Turn of bell on windows
@@ -39,6 +42,9 @@
 
 ; Don't use tabs
 (setq-default indent-tabs-mode nil)
+(setq-default tab-width 4)
+(setq-default c-basic-offset 4)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
