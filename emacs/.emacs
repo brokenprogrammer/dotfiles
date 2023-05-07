@@ -43,7 +43,11 @@
 ; Don't use tabs
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
+
+; C Style conventions
 (setq-default c-basic-offset 4)
+(c-set-offset 'case-label '+)
+(setq c-default-style "bsd")
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
