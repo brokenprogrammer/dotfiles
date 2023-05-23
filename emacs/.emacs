@@ -89,13 +89,6 @@
   :init
   (ivy-rich-mode 1))
 
-;; Disable line numbers for some modes
-(dolist (mode '(org-mode-hook
-                term-mode-hook))
-  shell-mode-hook
-  eshell-mode-hook
-  (add-hook mode (lambda () (display-line-numbers-mode 0))))
-
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
