@@ -1,12 +1,19 @@
-; Allow to use melpa packages
+; Setup packages
 (require 'package)
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
-;; Comment/uncomment this line to enable MELPA Stable if desired.  See `package-archive-priorities`
-;; and `package-pinned-packages`. Most users will not need or want to do this.
-;;(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
-
-; Initialize packages
+(setq package-archives '(("melpa" . "https://melpa.org/packages/")
+                         ("org" . "https://orgmode.org/elpa/")
+                         ("elpa" . "https://elpa.gnu.org/packages/")))
 (package-initialize)
+(unless package-archive-contents
+ (package-refresh-contents))
+
+; Initialize use-package on non-Linux platforms
+(unless (package-installed-p 'use-package)
+   (package-install 'use-package))
+
+; Always install packages
+(require 'use-package)
+(setq use-package-always-ensure t)
 
 ; Enable line hightlighting 
 (global-hl-line-mode 1)
@@ -31,6 +38,9 @@
 ; Always show line numbers
 (global-linum-mode 1)
 
+; Show column number in modeline
+(column-number-mode)
+
 ; no screwing with my middle mouse button
 (global-unset-key [mouse-2])
 
@@ -49,6 +59,43 @@
 (c-set-offset 'case-label '+)
 (setq c-default-style "bsd")
 
+; Setup ivy package which gives some nice autocomplete in minibuffer
+(use-package ivy
+  :init (ivy-mode 1)
+  :diminish
+  :bind (("C-s" . swiper)
+         :map ivy-minibuffer-map
+         ("TAB" . ivy-alt-done)	
+         ("C-l" . ivy-alt-done)
+         ("C-j" . ivy-next-line)
+         ("C-k" . ivy-previous-line)
+         :map ivy-switch-buffer-map
+         ("C-k" . ivy-previous-line)
+         ("C-l" . ivy-done)
+         ("C-d" . ivy-switch-buffer-kill)
+         :map ivy-reverse-i-search-map
+         ("C-k" . ivy-previous-line)
+         ("C-d" . ivy-reverse-i-search-kill)))
+
+; UI to narrow down ivy suggestions
+(use-package counsel
+  :bind (("M-x" . counsel-M-x)
+         ("C-x b" . counsel-ibuffer)
+         ("C-x C-f" . counsel-find-file)
+         :map minibuffer-local-map
+         ("C-r" . 'counsel-minibuffer-history)))
+
+(use-package ivy-rich
+  :init
+  (ivy-rich-mode 1))
+
+;; Disable line numbers for some modes
+(dolist (mode '(org-mode-hook
+                term-mode-hook))
+  shell-mode-hook
+  eshell-mode-hook
+  (add-hook mode (lambda () (display-line-numbers-mode 0))))
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -56,7 +103,7 @@
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
    '("b1a691bb67bd8bd85b76998caf2386c9a7b2ac98a116534071364ed6489b695d" "72ed8b6bffe0bfa8d097810649fd57d2b598deef47c992920aef8b5d9599eefe" default))
- '(package-selected-packages '(gruvbox-theme)))
+ '(package-selected-packages '(counsel ivy-rich use-package gruvbox-theme)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
