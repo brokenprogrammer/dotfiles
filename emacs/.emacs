@@ -89,6 +89,14 @@
   :init
   (ivy-rich-mode 1))
 
+; Automatically load modes when certain files are opened.
+(setq auto-mode-alist
+      (append
+       '(("\\.cob\\'" . cobol-mode)
+         ("\\.cbl\\'" . cobol-mode)
+         ("\\.cpy\\'" . cobol-mode))
+       auto-mode-alist))
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -96,7 +104,7 @@
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
    '("b1a691bb67bd8bd85b76998caf2386c9a7b2ac98a116534071364ed6489b695d" "72ed8b6bffe0bfa8d097810649fd57d2b598deef47c992920aef8b5d9599eefe" default))
- '(package-selected-packages '(counsel ivy-rich use-package gruvbox-theme)))
+ '(package-selected-packages '(cobol-mode counsel ivy-rich use-package gruvbox-theme)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
